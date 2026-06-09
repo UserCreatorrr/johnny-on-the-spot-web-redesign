@@ -88,25 +88,25 @@
     sound.addEventListener("click", () => { heroVideo.muted = !heroVideo.muted; sound.textContent = heroVideo.muted ? "Sonido" : "Silenciar"; });
     const cases = {
       alcon: {
-        video: "/assets/videos/alcon.mp4?v=2", client: "Alcon", title: "The Hydraglyde Family",
+        video: "https://media.githubusercontent.com/media/UserCreatorrr/johnny-on-the-spot-web-redesign/b7c94ca91a14a567b4f91ca7a9b958373e495305/assets/videos/alcon.mp4", client: "Alcon", title: "The Hydraglyde Family",
         subtitle: "Lanzamiento de Producto (España & Portugal)", productionHeading: "Producción integral",
         production: ["Estrategia", "Concepto", "Desarrollo Creativo", "Producción Gráfica", "Guionización", "Rodaje Mini Serie", "Videos Contenido", "Realidad Aumentada", "Web & App", "Roadshow", "Producción & Logística", "Staff & F&B"],
         services: ["Estrategia", "Comunicación", "Dirección Creativa", "Eventos", "Activación & Experiencias", "Marketing Digital", "Foto & Video"]
       },
       sand: {
-        video: "/assets/videos/sand-games.mp4?v=2", client: "SD Distribuciones", title: "The Sand Games",
+        video: "https://media.githubusercontent.com/media/UserCreatorrr/johnny-on-the-spot-web-redesign/b7c94ca91a14a567b4f91ca7a9b958373e495305/assets/videos/sand-games.mp4", client: "SD Distribuciones", title: "The Sand Games",
         subtitle: "Producción Integral de Evento", productionHeading: "Producción integral",
         production: ["Concepto", "Desarrollo Creativo", "Producción Gráfica", "Comunicación Interna", "Web Dedicado", "Videos", "Actividades", "Localizaciones", "Producción", "Staff & F&B", "Logística & Viajes"],
         services: ["Dirección Creativa", "Eventos", "Activación & Experiencias", "Marketing Digital", "Foto & Video"]
       },
       coca: {
-        video: "/assets/videos/coca-cola-kfc.mp4?v=2", client: "Coca-Cola & KFC", title: "Coca Cola x KFC",
+        video: "https://media.githubusercontent.com/media/UserCreatorrr/johnny-on-the-spot-web-redesign/b7c94ca91a14a567b4f91ca7a9b958373e495305/assets/videos/coca-cola-kfc.mp4", client: "Coca-Cola & KFC", title: "Coca Cola x KFC",
         subtitle: "Video", productionHeading: "Concepto & Producción",
         production: ["Concepto", "Desarrollo Creativo", "Dirección de Arte", "Edición y Producción Video"],
         services: ["Comunicación", "Dirección Creativa", "Foto & Video"]
       },
       novartis: {
-        video: "/assets/videos/novartis.mp4?v=2", client: "Novartis", title: "Mañana Empieza Hoy",
+        video: "https://media.githubusercontent.com/media/UserCreatorrr/johnny-on-the-spot-web-redesign/b7c94ca91a14a567b4f91ca7a9b958373e495305/assets/videos/novartis.mp4", client: "Novartis", title: "Mañana Empieza Hoy",
         subtitle: "Congreso Transplant Tomorrow · Certican", productionHeading: "Producción integral",
         production: ["Concepto", "Desarrollo Creativo", "Producción Gráfica", "Congreso", "Stand", "Video", "Localización", "Producción & Logística", "Staff & F&B"],
         services: ["Comunicación", "Dirección Creativa", "Eventos", "Foto & Video"]
