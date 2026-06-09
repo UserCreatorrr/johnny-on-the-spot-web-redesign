@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/nosotros",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/nosotros/",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/servicios",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/servicios/",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/contacto",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/contacto/",
+      "destination": "/app.html"
+    }
+  ]
+}
