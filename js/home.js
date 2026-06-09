@@ -23,6 +23,14 @@
       gsap.ticker.lagSmoothing(0);
     }
     const heroVideo = $(".hero__video");
+    gsap.set(".hero__veil", {
+      xPercent: 100,
+      opacity: 1,
+      backgroundColor: "#fff"
+    });
+    gsap.set(".hero__logo-wrap", { opacity: 1 });
+    gsap.set(".hero__logo", { scale: 1, opacity: 1 });
+    gsap.set(heroVideo, { opacity: 0, scale: 1.08 });
     const heroTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
@@ -30,7 +38,7 @@
         end: "bottom bottom",
         scrub: 1,
         onUpdate: ({ progress }) => {
-          if (progress >= .55) {
+          if (progress >= .48) {
             heroVideo.play().catch(() => {});
           } else {
             heroVideo.pause();
@@ -40,15 +48,13 @@
       }
     });
     heroTimeline
-      .to(".hero__veil", { xPercent: -100, ease: "none", duration: .35 })
+      .to(".hero__veil", { xPercent: 0, ease: "none", duration: .35 })
       .to(".hero__logo", { scale: .82, opacity: .65, ease: "none", duration: .45 }, .35)
-      .to(".hero__veil", { backgroundColor: "#000", opacity: .25, ease: "none", duration: .2 }, .8)
-      .to(".hero__logo-wrap", { opacity: 0, ease: "none", duration: .12 })
-      .to(heroVideo, { opacity: 1, scale: 1, ease: "none", duration: .35 });
+      .to(".hero__logo-wrap", { opacity: 0, ease: "none", duration: .12 }, .8)
+      .to(heroVideo, { opacity: 1, scale: 1, ease: "none", duration: .35 }, .92)
+      .to(".hero__veil", { opacity: 0, ease: "none", duration: .35 }, .92);
     gsap.to(".name-definition img", { scale: 1.08, scrollTrigger: { trigger: ".name-definition", start: "top top", end: "bottom bottom", scrub: 1 } });
-    $$(".home-case video").forEach(video => {
-      ScrollTrigger.create({ trigger: video.closest(".home-case"), start: "top 70%", end: "bottom 30%", onEnter: () => video.play(), onEnterBack: () => video.play(), onLeave: () => video.pause(), onLeaveBack: () => video.pause() });
-    });
+    $$(".home-case video").forEach(video => video.play().catch(() => {}));
     if (innerWidth > 800) {
       const cases = $(".home-cases");
       const track = $(".home-cases__track");
