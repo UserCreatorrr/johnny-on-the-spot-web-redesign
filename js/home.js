@@ -23,14 +23,7 @@
       gsap.ticker.lagSmoothing(0);
     }
     const heroVideo = $(".hero__video");
-    gsap.set(".hero__veil", {
-      xPercent: 100,
-      opacity: 1,
-      backgroundColor: "#fff"
-    });
-    gsap.set(".hero__logo-wrap", { opacity: 1 });
-    gsap.set(".hero__logo", { scale: 1, opacity: 1 });
-    gsap.set(heroVideo, { opacity: 0, scale: 1.08 });
+    heroVideo.load();
     const heroTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
@@ -48,13 +41,24 @@
       }
     });
     heroTimeline
-      .to(".hero__veil", { xPercent: 0, ease: "none", duration: .35 })
+      .to(".hero__veil", { xPercent: -100, ease: "none", duration: .35 })
       .to(".hero__logo", { scale: .82, opacity: .65, ease: "none", duration: .45 }, .35)
       .to(".hero__logo-wrap", { opacity: 0, ease: "none", duration: .12 }, .8)
-      .to(heroVideo, { opacity: 1, scale: 1, ease: "none", duration: .35 }, .92)
-      .to(".hero__veil", { opacity: 0, ease: "none", duration: .35 }, .92);
+      .to(heroVideo, { opacity: 1, scale: 1, ease: "none", duration: .35 }, .8)
+      .to(".hero__veil", { opacity: 0, ease: "none", duration: .35 }, .8);
     gsap.to(".name-definition img", { scale: 1.08, scrollTrigger: { trigger: ".name-definition", start: "top top", end: "bottom bottom", scrub: 1 } });
-    $$(".home-case video").forEach(video => video.play().catch(() => {}));
+    const caseVideos = $$(".home-case video");
+    const playCaseVideos = () => caseVideos.forEach(video => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play().catch(() => {
+        video.addEventListener("canplay", () => video.play().catch(() => {}), { once: true });
+      });
+    });
+    playCaseVideos();
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) playCaseVideos();
+    });
     if (innerWidth > 800) {
       const cases = $(".home-cases");
       const track = $(".home-cases__track");
@@ -84,25 +88,25 @@
     sound.addEventListener("click", () => { heroVideo.muted = !heroVideo.muted; sound.textContent = heroVideo.muted ? "Sonido" : "Silenciar"; });
     const cases = {
       alcon: {
-        video: "/assets/videos/alcon.mp4", client: "Alcon", title: "The Hydraglyde Family",
+        video: "/assets/videos/alcon.mp4?v=2", client: "Alcon", title: "The Hydraglyde Family",
         subtitle: "Lanzamiento de Producto (España & Portugal)", productionHeading: "Producción integral",
         production: ["Estrategia", "Concepto", "Desarrollo Creativo", "Producción Gráfica", "Guionización", "Rodaje Mini Serie", "Videos Contenido", "Realidad Aumentada", "Web & App", "Roadshow", "Producción & Logística", "Staff & F&B"],
         services: ["Estrategia", "Comunicación", "Dirección Creativa", "Eventos", "Activación & Experiencias", "Marketing Digital", "Foto & Video"]
       },
       sand: {
-        video: "/assets/videos/sand-games.mp4", client: "SD Distribuciones", title: "The Sand Games",
+        video: "/assets/videos/sand-games.mp4?v=2", client: "SD Distribuciones", title: "The Sand Games",
         subtitle: "Producción Integral de Evento", productionHeading: "Producción integral",
         production: ["Concepto", "Desarrollo Creativo", "Producción Gráfica", "Comunicación Interna", "Web Dedicado", "Videos", "Actividades", "Localizaciones", "Producción", "Staff & F&B", "Logística & Viajes"],
         services: ["Dirección Creativa", "Eventos", "Activación & Experiencias", "Marketing Digital", "Foto & Video"]
       },
       coca: {
-        video: "/assets/videos/coca-cola-kfc.mp4", client: "Coca-Cola & KFC", title: "Coca Cola x KFC",
+        video: "/assets/videos/coca-cola-kfc.mp4?v=2", client: "Coca-Cola & KFC", title: "Coca Cola x KFC",
         subtitle: "Video", productionHeading: "Concepto & Producción",
         production: ["Concepto", "Desarrollo Creativo", "Dirección de Arte", "Edición y Producción Video"],
         services: ["Comunicación", "Dirección Creativa", "Foto & Video"]
       },
       novartis: {
-        video: "/assets/videos/novartis.mp4", client: "Novartis", title: "Mañana Empieza Hoy",
+        video: "/assets/videos/novartis.mp4?v=2", client: "Novartis", title: "Mañana Empieza Hoy",
         subtitle: "Congreso Transplant Tomorrow · Certican", productionHeading: "Producción integral",
         production: ["Concepto", "Desarrollo Creativo", "Producción Gráfica", "Congreso", "Stand", "Video", "Localización", "Producción & Logística", "Staff & F&B"],
         services: ["Comunicación", "Dirección Creativa", "Eventos", "Foto & Video"]
