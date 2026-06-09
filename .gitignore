@@ -1,0 +1,7 @@
+*.log
+*.png
+!assets/**/*.png
+content/
+qa-capture.mjs
+tools/
+.edge-qa/
