@@ -46,7 +46,7 @@
       .to(".hero__logo-wrap", { opacity: 0, ease: "none", duration: .12 }, .8)
       .to(heroVideo, { opacity: 1, scale: 1, ease: "none", duration: .35 }, .8)
       .to(".hero__veil", { opacity: 0, ease: "none", duration: .35 }, .8);
-    gsap.to(".name-definition img", { scale: 1.08, scrollTrigger: { trigger: ".name-definition", start: "top top", end: "bottom bottom", scrub: 1 } });
+    gsap.to(".name-definition img", { scale: 1.03, scrollTrigger: { trigger: ".name-definition", start: "top top", end: "bottom bottom", scrub: 1 } });
     const caseVideos = $$(".home-case video");
     const playCaseVideos = () => caseVideos.forEach(video => {
       video.muted = true;
